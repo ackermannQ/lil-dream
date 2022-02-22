@@ -9,6 +9,7 @@ public class WakingUpSequence : MonoBehaviour
     public TextMeshProUGUI Indications;
 
     public GameObject SpeechBubble;
+    public GameObject MovingAround;
     void Start()
     {
         StartCoroutine(WakingUp());
@@ -27,5 +28,8 @@ public class WakingUpSequence : MonoBehaviour
         Indications.text = "Have a look around";
         yield return new WaitForSeconds(3f);
         Indications.text = "";
+        MovingAround.SetActive(true);
+        yield return new WaitForSeconds(5f);
+        MovingAround.SetActive(false);
     }
 }
