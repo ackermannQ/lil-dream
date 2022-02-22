@@ -6,7 +6,7 @@ Maybe not a lot of visibility
 
 
 
-We are constently being attacked with some monster, silhouette
+We are constently being attacked by some monster, silhouette
 
 The first dream, being catch is unavoidable (SCRIPTED: :D)
 
