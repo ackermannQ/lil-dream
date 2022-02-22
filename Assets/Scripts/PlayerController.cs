@@ -3,16 +3,25 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
 
-    public float Speed = 5f;
-
     public Rigidbody2D rb;
 
-    Vector2 movement;
+    private float Speed = 5f;
+
+    private Vector2 movement;
 
     void Update()
     {
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.y = Input.GetAxisRaw("Vertical");
+
+        if (Input.GetButtonDown("Run"))
+        {
+            Speed += 4f;
+        }
+        if (Input.GetButtonUp("Run"))
+        {
+            Speed = 5f;
+        }
     }
 
     private void FixedUpdate()

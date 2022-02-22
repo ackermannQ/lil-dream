@@ -8,7 +8,6 @@ public class Incandescence : MonoBehaviour
     void Start()
     {
         initRadius = GetComponent<Light2D>().pointLightInnerRadius;
-        Debug.Log(initRadius);
     }
 
     private void OnTriggerEnter2d(Collider2D col)
