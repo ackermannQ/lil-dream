@@ -2,8 +2,8 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-
     public Rigidbody2D rb;
+    public static bool isInteracting = false;
 
     private float Speed = 5f;
 
@@ -27,5 +27,17 @@ public class PlayerController : MonoBehaviour
     private void FixedUpdate()
     {
         rb.MovePosition(Speed * Time.fixedDeltaTime * movement + rb.position);
+
+
+        if (Input.GetButtonDown("Action"))
+        {
+            isInteracting = true;
+        }
+
+        if (Input.GetButtonUp("Action"))
+        {
+            isInteracting = false;
+        }
+
     }
 }
