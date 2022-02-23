@@ -5,10 +5,13 @@ public class InteractableBase : MonoBehaviour, IInteractable
     public float radius = 1f;
     public GameObject currentObj = null;
 
+    public AudioSource interactionSound;
+
     void Update()
     {
         if (Input.GetButtonDown("Action") && currentObj)
         {
+            interactionSound.Play();
             Interact();
         }
 
