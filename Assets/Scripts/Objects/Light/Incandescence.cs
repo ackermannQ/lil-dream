@@ -3,24 +3,33 @@ using UnityEngine.Experimental.Rendering.Universal;
 
 public class Incandescence : MonoBehaviour
 {
-    private float radius;
-    private float initRadius;
-    void Start()
+    public Light2D light;
+
+    private bool isClose = false;
+
+    private readonly float maxRadius = 60f;
+    private readonly float maxIntensity = 1.5f;
+
+    private void Update()
     {
-        initRadius = GetComponent<Light2D>().pointLightInnerRadius;
+        if (Input.GetButtonDown("Action") && isClose)
+        {
+            light.pointLightOuterRadius += 5;
+            light.intensity += 0.1f;
+        }
+
+        if (light.pointLightOuterRadius >= maxRadius && light.intensity == maxIntensity)
+        {
+            // Level Succeeded
+        }
     }
 
-    private void OnTriggerEnter2d(Collider2D col)
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        radius = initRadius + 15f;
-        Debug.Log("Entered");
-        Debug.Log(radius);
+        isClose = true;
     }
-
-    private void OnTriggerExit2d(Collider2D col)
+    private void OnTriggerExit2D(Collider2D other)
     {
-        Debug.Log("Exited");
-        Debug.Log(radius);
-        radius += initRadius;
+        isClose = false;
     }
 }
