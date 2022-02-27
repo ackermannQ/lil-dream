@@ -18,7 +18,7 @@ public class DialogManager : MonoBehaviour
     public void StartDialog(Dialog dialog)
     {
         anim.SetBool("IsOpen", true);
-        PlayerController.isInteracting = true;
+
         Sentences.Clear();
 
         foreach (var sentence in dialog.sentences)
@@ -57,6 +57,5 @@ public class DialogManager : MonoBehaviour
     public void EndOfDialog()
     {
         anim.SetBool("IsOpen", false);
-        PlayerController.isInteracting = false;
     }
 }

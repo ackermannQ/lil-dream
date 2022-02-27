@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Reality : MonoBehaviour
 {
@@ -6,6 +7,12 @@ public class Reality : MonoBehaviour
     public int CurrentRealityPoints;
 
     public RealityBar realityBar;
+
+    public static bool hasBeenCatch = false;
+    public static bool allLightsTurnedOn = false;
+
+    private bool loadScene = false;
+
     void Start()
     {
         CurrentRealityPoints = MaxRealityPoints;
@@ -15,16 +22,20 @@ public class Reality : MonoBehaviour
 
     void Update()
     {
-        // if hasBeenCatched
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (hasBeenCatch)
         {
             LoseReality();
         }
 
-        // If !hasBeenCatch and allLightsTurnedOn
-        if (Input.GetKeyDown(KeyCode.E))
+        if (!hasBeenCatch && allLightsTurnedOn)
         {
             GainReality();
+            loadScene = true;
+        }
+
+        if (loadScene)
+        {
+            LoadMainScene();
         }
     }
 
@@ -50,5 +61,12 @@ public class Reality : MonoBehaviour
         }
 
         realityBar.SetRealityPoints(CurrentRealityPoints);
+    }
+
+    private void LoadMainScene()
+    {
+        loadScene = false;
+        allLightsTurnedOn = false;
+        SceneManager.LoadScene(1);
     }
 }

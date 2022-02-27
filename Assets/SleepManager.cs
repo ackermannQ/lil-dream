@@ -19,7 +19,6 @@ public class SleepManager : MonoBehaviour
     public void StartDialog(Dialog dialog)
     {
         anim.SetBool("IsOpen", true);
-        PlayerController.isInteracting = true;
 
         Sentences.Clear();
 
@@ -59,7 +58,6 @@ public class SleepManager : MonoBehaviour
     public void EndOfDialog()
     {
         anim.SetBool("IsOpen", false);
-        PlayerController.isInteracting = false;
     }
 
     public void GoToSleep()

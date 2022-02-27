@@ -15,11 +15,13 @@ public class EnemyAi : MonoBehaviour
 
     private Seeker seeker;
     private Rigidbody2D rb;
+    private Animator animator;
 
     void Start()
     {
         seeker = GetComponent<Seeker>();
         rb = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
 
         InvokeRepeating("UpdatePath", 0f, 0.5f);
     }
@@ -78,5 +80,9 @@ public class EnemyAi : MonoBehaviour
         {
             enemyGFX.localScale = new Vector3(1f, 1f, 1f);
         }
+
+        animator.SetFloat("Horizontal", rb.velocity.x);
+        animator.SetFloat("Vertical", rb.velocity.y);
+        animator.SetFloat("Speed", rb.velocity.sqrMagnitude);
     }
 }

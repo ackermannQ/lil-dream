@@ -18,9 +18,9 @@ public class Incandescence : MonoBehaviour
             light.intensity += 0.1f;
         }
 
-        if (light.pointLightOuterRadius >= maxRadius && light.intensity == maxIntensity)
+        if (light.pointLightOuterRadius >= maxRadius && light.intensity >= maxIntensity)
         {
-            // Level Succeeded
+            Reality.allLightsTurnedOn = true;
         }
     }
 
