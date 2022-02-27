@@ -18,12 +18,20 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        movement.x = Input.GetAxisRaw("Horizontal");
-        movement.y = Input.GetAxisRaw("Vertical");
-
-        animator.SetFloat("Horizontal", movement.x);
-        animator.SetFloat("Vertical", movement.y);
-        animator.SetFloat("Speed", movement.sqrMagnitude);
+        if (!isInteracting)
+        {
+            movement.x = Input.GetAxisRaw("Horizontal");
+            movement.y = Input.GetAxisRaw("Vertical");
+            animator.SetFloat("Horizontal", movement.x);
+            animator.SetFloat("Vertical", movement.y);
+            animator.SetFloat("Speed", movement.sqrMagnitude);
+        }
+        else
+        {
+            animator.SetFloat("Horizontal", 0);
+            animator.SetFloat("Vertical", 0);
+            animator.SetFloat("Speed", 0);
+        }
 
         if (Input.GetButtonDown("Run"))
         {
