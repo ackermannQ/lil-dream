@@ -49,6 +49,7 @@ public class Reality : MonoBehaviour
         }
 
         realityBar.SetRealityPoints(CurrentRealityPoints);
+        LoadMainScene();
     }
 
     private void GainReality()
@@ -67,6 +68,7 @@ public class Reality : MonoBehaviour
     {
         loadScene = false;
         allLightsTurnedOn = false;
+        hasBeenCatch = false;
         SceneManager.LoadScene(1);
     }
 }

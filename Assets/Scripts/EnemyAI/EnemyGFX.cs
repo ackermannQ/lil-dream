@@ -20,10 +20,5 @@ public class EnemyGFX : MonoBehaviour
         {
             transform.localScale = new Vector3(1f, 1f, 1f);
         }
-
-
-        animator.SetFloat("Horizontal", aiPath.desiredVelocity.x);
-        animator.SetFloat("Vertical", aiPath.desiredVelocity.y);
-        animator.SetFloat("Speed", aiPath.desiredVelocity.sqrMagnitude);
     }
 }
